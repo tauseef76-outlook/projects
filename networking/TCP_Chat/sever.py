@@ -2,10 +2,10 @@ import threading
 import socket
 
 host = "127.0.0.1"
-port = 55555
+port = 55523
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(host,port)
+server.bind((host,port))
 server.listen()
 
 clients = []
@@ -45,4 +45,6 @@ def recieve():
         
         thread = threading.Thread(target = handle, args = (client,))
         thread.start()
+        
+recieve()
 
