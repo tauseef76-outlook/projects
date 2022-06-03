@@ -1,3 +1,4 @@
+from email import message
 import socket
 from symbol import pass_stmt
 import threading
@@ -19,3 +20,15 @@ def recieve():
             print("Error: Purge")
             client.close()
             break
+        
+def write():
+    while True:
+        message = f'{nickname}: {input("")}'
+        client.send(message.encode("ascii"))
+        
+recieve_thread = threading.Thread(target=recieve)
+recieve_thread.start()
+
+write_thread = threading.Thread(target=write)
+write_thread.start()
+
