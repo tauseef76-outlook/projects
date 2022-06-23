@@ -8,14 +8,16 @@ def partition(arr,low,high):
     pivot_index = low
     pivot = arr[pivot_index]
 
-    while(arr[high] > pivot):
-        high-=1
+    while(low<high):
 
-    while (arr[low] <= pivot and low<len(arr)):
-        low += 1
+        while(arr[high] > pivot):
+            high-=1
 
-    if(low>high):
-        swap(arr,low,high)
+        while (arr[low] <= pivot and low<len(arr)):
+            low += 1
+
+        if(low<high):
+            swap(arr,low,high)
 
     swap(arr,pivot_index,high)
     return 0
