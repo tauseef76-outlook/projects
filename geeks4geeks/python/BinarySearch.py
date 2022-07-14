@@ -1,20 +1,18 @@
-def binarySearch(arr,l,h,ele):
-        mid = h//2
-        if(ele == arr(mid)):
-            return (mid)
-        elif(ele < arr[mid]):
-            binarySearch(arr,l,mid-1,ele)
-        elif(ele > arr[mid]):
-            binarySearch(arr,mid+1,h,ele)
-        else:
-            return -1
+def binarySearch(arr, l, h, ele):
+    if l > h:
+        return -1
+    mid = (l+h)//2
+    if(ele == arr[mid]):
+        return (mid+1)
+    elif(ele < arr[mid]):
+        binarySearch(arr, l, mid-1, ele)
+    elif(ele > arr[mid]):
+        binarySearch(arr, mid+1, h, ele)
+    else:
+        return -1
 
-arr = [2, 3, 4, 10, 40]
-x = 10
-l = 0
-x = 10
-h = len(arr)
-res = binarySearch(arr,l,h,x)
+if __name__ == "__main__":
+    arr = [2, 3, 4, 10, 40]
+    res = binarySearch(arr,0,len(arr), 4)
 
-print(res,"=======")
-
+    print(res, "=======")
